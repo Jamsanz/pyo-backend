@@ -17,7 +17,7 @@ class UserService {
     if (isEmpty(userId)) throw new HttpException(400, "You're not userId");
 
     const findUser: User = await this.users.findOne({ _id: userId });
-    if (!findUser) throw new HttpException(409, "You're not user");
+    if (!findUser) throw new HttpException(409, "Your not user");
 
     return findUser;
   }
@@ -26,7 +26,7 @@ class UserService {
     if (isEmpty(userData)) throw new HttpException(400, "You're not userData");
 
     const findUser: User = await this.users.findOne({ email: userData.email });
-    if (findUser) throw new HttpException(409, `You're email ${userData.email} already exists`);
+    if (findUser) throw new HttpException(409, `Your email ${userData.email} already exists`);
 
     const hashedPassword = await hash(userData.password, 10);
     const createUserData: User = await this.users.create({ ...userData, password: hashedPassword });
