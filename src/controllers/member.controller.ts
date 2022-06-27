@@ -23,6 +23,16 @@ class MemberController {
       next(error);
     }
   };
+
+  public getMemberByEmail = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const email = req.body.email;
+      const member = await this.member.findMemberByEmail(email);
+      res.status(200).json({ data: member, message: 'member found' });
+    } catch (error) {
+      next(error);
+    }
+  };
   
   public createMember = async (req: Request, res: Response, next: NextFunction) => {
     try {

@@ -4,11 +4,13 @@ import { CreateUserDto } from '@dtos/users.dto';
 import { Routes } from '@interfaces/routes.interface';
 import authMiddleware from '@middlewares/auth.middleware';
 import validationMiddleware from '@middlewares/validation.middleware';
+import MemberController from '@/controllers/member.controller';
 
 class AuthRoute implements Routes {
   public path = '/';
   public router = Router();
   public authController = new AuthController();
+  public memberController = new MemberController();
 
   constructor() {
     this.initializeRoutes();
@@ -16,7 +18,7 @@ class AuthRoute implements Routes {
 
   private initializeRoutes() {
     this.router.post(`${this.path}signup`, validationMiddleware(CreateUserDto, 'body'), this.authController.signUp);
-    this.router.post(`${this.path}login`, validationMiddleware(CreateUserDto, 'body'), this.authController.logIn);
+    this.router.post(`${this.path}login`, this.memberController.getMemberByEmail);
     this.router.post(`${this.path}logout`, authMiddleware, this.authController.logOut);
   }
 }
