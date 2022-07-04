@@ -1,5 +1,5 @@
 import { IsBoolean, IsString } from "class-validator";
-import Schedule from "interfaces/schedule.interface";
+import Schedule from "@/interfaces/schedule.interface";
 
 class ScheduleDto implements Schedule{
   @IsString()

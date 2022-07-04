@@ -1,7 +1,7 @@
 import Schedule from "interfaces/schedule.interface";
-import { isEmpty } from "utils/util";
-import scheduleModel from "models/schedule.model";
-import { HttpException } from "exceptions/HttpException";
+import { isEmpty } from "@/utils/util";
+import scheduleModel from "@/models/schedule.model";
+import { HttpException } from "@/exceptions/HttpException";
 import ScheduleDto from "@/dtos/schedule.dto";
 
 class ScheduleService{
