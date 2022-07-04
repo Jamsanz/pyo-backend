@@ -13,6 +13,9 @@ class MemberDto implements IMember {
 
   @IsString()
   public country: string;
+
+  @IsString()
+  public fellowship: string;
 }
 
 export default MemberDto;

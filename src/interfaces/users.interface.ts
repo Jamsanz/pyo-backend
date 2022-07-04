@@ -13,4 +13,5 @@ export interface IMember {
   lastName: string;
   email: string;
   country: string;
+  fellowship: string;
 }
