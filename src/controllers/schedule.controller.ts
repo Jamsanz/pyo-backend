@@ -23,6 +23,16 @@ class ScheduleController {
     }
   };
 
+  public getScheduleByUserId = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const id = req.params.id;
+      const schedule = await this.schedule.findScheduleByUserId(id);
+      res.status(200).json({ data: schedule, message: 'schedule found' });
+    } catch (error) {
+      next(error);
+    }
+  };
+
   public createSchedule = async (req: Request, res: Response, next: NextFunction) => {
     try {
       const { body } = req;

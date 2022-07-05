@@ -15,6 +15,11 @@ class ScheduleService{
     if (isEmpty(id)) throw new HttpException(400, 'Bad request id required');
     return await this.schedule.findById(id);
   }
+
+  public async findScheduleByUserId(id: string): Promise<Schedule[]> {
+    if (isEmpty(id)) throw new HttpException(400, 'Bad request id required');
+    return await this.schedule.find({userId: id});
+  }
   
   public async createSchedule(data: ScheduleDto): Promise<Schedule> {
     if (isEmpty(data)) throw new HttpException(400, 'Bad request');
