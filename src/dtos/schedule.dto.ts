@@ -25,6 +25,9 @@ class ScheduleDto implements Schedule{
 
   @IsBoolean()
   public status: boolean;
+
+  @IsString()
+  public userId: string;
 }
 
 export default ScheduleDto;

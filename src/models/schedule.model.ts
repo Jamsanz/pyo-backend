@@ -35,6 +35,11 @@ const scheduleSchema = new Schema(
       type: Boolean,
       required: false,
       default: false
+    },
+    userId: {
+      type: Schema.Types.ObjectId,
+      required: true,
+      ref: 'Member'
     }
   },
   { timestamps: true },

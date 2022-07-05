@@ -1,3 +1,5 @@
+import { IMember } from "./users.interface";
+
 interface Schedule {
   title: string;
   date: Date | string;
@@ -7,6 +9,7 @@ interface Schedule {
   state: string;
   country: string;
   _id?: string;
+  userId: IMember['_id'];
   status?: boolean;
 }
 
