@@ -18,6 +18,10 @@ const memberSchema = new Schema({
     type: String,
     required: true,
   },
+  fellowship: {
+    type: String,
+    required: true
+  }
 }, { timestamps: true });
 
 export default model<IMember & Document>('Member', memberSchema);
