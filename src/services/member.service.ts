@@ -15,6 +15,11 @@ class MemberService {
     if (isEmpty(id)) throw new HttpException(400, 'Bad request');
     return await this.member.findById(id);
   }
+
+  public async findMemberByEmail(email: string): Promise<IMember> {
+    if (isEmpty(email)) throw new HttpException(400, 'Bad request');
+    return await this.member.findOne({ email });
+  }
   
   public async createMember(member: MemberDto): Promise<IMember> {
     if (isEmpty(member)) throw new HttpException(400, 'Bad request');

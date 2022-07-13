@@ -1,5 +1,8 @@
 export interface User {
   _id?: string;
+  firstName: string;
+  lastName: string;
+  phone: string;
   email: string;
   password: string;
 }
@@ -10,4 +13,5 @@ export interface IMember {
   lastName: string;
   email: string;
   country: string;
+  fellowship: string;
 }
