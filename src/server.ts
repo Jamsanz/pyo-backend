@@ -5,6 +5,7 @@ import UsersRoute from '@routes/users.route';
 import validateEnv from '@utils/validateEnv';
 import MemberRoute from './routes/member.route';
 import MessageRoute from './routes/message.route';
+import PyoScheduleRoute from './routes/pyo.schedule.route';
 import ScheduleRoute from './routes/schedule.route';
 
 validateEnv();
@@ -15,7 +16,8 @@ const app = new App([
   new AuthRoute(),
   new MemberRoute(),
   new ScheduleRoute(),
-  new MessageRoute()
+  new MessageRoute(),
+  new PyoScheduleRoute()
 ]);
 
 app.listen();

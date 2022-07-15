@@ -14,4 +14,5 @@ export interface IMember {
   email: string;
   country: string;
   fellowship: string;
+  status?: boolean;
 }
