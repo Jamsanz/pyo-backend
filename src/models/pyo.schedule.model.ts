@@ -72,7 +72,7 @@ const pyoScheduleSchema = new Schema({
   },
   letter: {
     type: String,
-    required: true,
+    required: false,
   },
 });
 
