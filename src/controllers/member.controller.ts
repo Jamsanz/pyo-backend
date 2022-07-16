@@ -1,6 +1,6 @@
-import MemberDto from "@/dtos/member.dto";
-import MemberService from "@/services/member.service";
-import { NextFunction, Request, Response } from "express";
+import MemberDto from '@/dtos/member.dto';
+import MemberService from '@/services/member.service';
+import { NextFunction, Request, Response } from 'express';
 
 class MemberController {
   public member = new MemberService();
@@ -33,20 +33,25 @@ class MemberController {
       next(error);
     }
   };
-  
+
   public createMember = async (req: Request, res: Response, next: NextFunction) => {
     try {
       const data: MemberDto = req.body;
       const member = await this.member.createMember(data);
-      res.status(201).json({ data: member, message: 'Registration successful' });
+      if (member != null) {
+        res.status(201).json({ data: member, message: 'Registration successful' });
+      } else {
+        res.status(400).json({ data: null, message: 'Registration failed' });
+      }
     } catch (error) {
       next(error);
     }
   };
-  
+
   public updateMember = async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const data: MemberDto = req.body, id = req.params.id;
+      const data: MemberDto = req.body;
+      const id = req.params.id;
       const member = await this.member.updateMember(id, data);
       res.status(201).json({ data: member, message: 'User updated sucessfully' });
     } catch (error) {
