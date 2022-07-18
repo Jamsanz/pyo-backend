@@ -1,11 +1,15 @@
 import SubscriptionDto from '@/dtos/subscription.dto';
+import { CreateUserDto } from '@/dtos/user.dto';
 import AuthService from '@/services/auth.service';
 import SubscriptionService from '@/services/subscription.service';
+import UserService from '@/services/users.service';
 import { NextFunction, Request, Response } from 'express';
+import { generateString } from '../utils/helpers';
 
 class SubscriptionController {
   public subscription = new SubscriptionService();
   public auth = new AuthService();
+  public user = new UserService();
 
   public getSubscriptions = async (req: Request, res: Response, next: NextFunction) => {
     try {
@@ -42,10 +46,14 @@ class SubscriptionController {
 
   public createSubscription = async (req: Request, res: Response, next: NextFunction) => {
     try {
-      console.log('Data', req.body);
       const data: SubscriptionDto = req.body;
       const subscription = await this.subscription.createSubscription(data);
       if (subscription != null) {
+        // TODO: Do not create user until approved by admin
+        if (subscription.fellowship.length > 0) {
+          const userDto: CreateUserDto = { username: data.email, password: generateString() };
+          this.user.createUser(userDto);
+        }
         res.status(201).json({ data: subscription, message: 'Signup successful.' });
       } else {
         res.status(400).json({ data: null, message: 'Sugnup failed.' });

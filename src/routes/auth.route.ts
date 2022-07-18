@@ -7,7 +7,7 @@ import validationMiddleware from '@middlewares/validation.middleware';
 import MemberController from '@/controllers/subscription.controller';
 
 class AuthRoute implements Route {
-  public path = '/auth';
+  public path = '/auth/';
   public router = Router();
   public authController = new AuthController();
   public memberController = new MemberController();

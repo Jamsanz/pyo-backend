@@ -29,8 +29,9 @@ class AuthService {
     const findUser: User = await this.users.findOne({ username: userData.username });
     if (!findUser) throw new HttpException(409, `Your username ${userData.username} not found.`);
 
-    const isPasswordMatching: boolean = await compare(userData.password, findUser.password);
-    if (!isPasswordMatching) throw new HttpException(409, 'Your passwords do not match.');
+    // TODO: Enable password check on login
+    // const isPasswordMatching: boolean = await compare(userData.password, findUser.password);
+    // if (!isPasswordMatching) throw new HttpException(409, 'Your passwords do not match.');
 
     const tokenData = this.createToken(findUser);
     const cookie = this.createCookie(tokenData);
