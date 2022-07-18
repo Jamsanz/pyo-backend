@@ -1,6 +1,6 @@
-import { IMember } from "./users.interface";
+import { Subscription } from './subscription.interface';
 
-interface Schedule {
+interface ISchedule {
   title: string;
   date: Date | string;
   type: string;
@@ -9,8 +9,8 @@ interface Schedule {
   state: string;
   country: string;
   _id?: string;
-  userId: IMember['_id'];
+  userId: Subscription['userId'];
   status?: boolean;
 }
 
-export default Schedule;
+export default ISchedule;

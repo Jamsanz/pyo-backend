@@ -3,7 +3,7 @@ import AuthRoute from '@routes/auth.route';
 import IndexRoute from '@routes/index.route';
 import UsersRoute from '@routes/users.route';
 import validateEnv from '@utils/validateEnv';
-import MemberRoute from './routes/member.route';
+import SubscriptionRoute from './routes/subscription.route';
 import MessageRoute from './routes/message.route';
 import PyoScheduleRoute from './routes/pyo.schedule.route';
 import ScheduleRoute from './routes/schedule.route';
@@ -14,10 +14,10 @@ const app = new App([
   new IndexRoute(),
   new UsersRoute(),
   new AuthRoute(),
-  new MemberRoute(),
+  new SubscriptionRoute(),
   new ScheduleRoute(),
   new MessageRoute(),
-  new PyoScheduleRoute()
+  new PyoScheduleRoute(),
 ]);
 
 app.listen();

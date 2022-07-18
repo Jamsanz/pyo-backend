@@ -1,7 +1,6 @@
-import { IMember } from '@/interfaces/users.interface';
 import { IsEmail, IsString } from 'class-validator';
 
-class MemberDto implements IMember {
+class SubscriptionDto {
   @IsString()
   public firstName: string;
 
@@ -12,10 +11,13 @@ class MemberDto implements IMember {
   public email: string;
 
   @IsString()
+  public phone?: string;
+
+  @IsString()
   public country: string;
 
   @IsString()
-  public fellowship: string;
+  public fellowship?: string;
 }
 
-export default MemberDto;
+export default SubscriptionDto;

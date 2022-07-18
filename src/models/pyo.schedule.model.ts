@@ -1,5 +1,5 @@
-import PyoSchedule from "@/interfaces/pyo.schedule.interface";
-import { Document, model, Schema } from "mongoose";
+import PyoSchedule from '@/interfaces/pyo.schedule.interface';
+import { Document, model, Schema } from 'mongoose';
 
 const pyoScheduleSchema = new Schema({
   orgName: {

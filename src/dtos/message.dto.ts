@@ -1,7 +1,7 @@
-import { IMessage } from "@/interfaces/message.interface";
-import { IsString } from "class-validator";
+import { Message } from '@/interfaces/message.interface';
+import { IsString } from 'class-validator';
 
-class MessageDto implements IMessage {
+class MessageDto implements Message {
   @IsString()
   public name: string;
 

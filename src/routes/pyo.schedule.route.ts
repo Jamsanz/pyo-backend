@@ -1,5 +1,5 @@
 import PyoScheduleController from '@/controllers/pyo.schedule.controller';
-import { Routes } from '@/interfaces/routes.interface';
+import { Routes } from '@/interfaces/route.interface';
 import { Router } from 'express';
 
 class PyoScheduleRoute implements Routes {
