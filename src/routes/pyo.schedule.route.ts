@@ -1,8 +1,8 @@
 import PyoScheduleController from '@/controllers/pyo.schedule.controller';
-import { Routes } from '@/interfaces/route.interface';
+import { Route } from '@/interfaces/route.interface';
 import { Router } from 'express';
 
-class PyoScheduleRoute implements Routes {
+class PyoScheduleRoute implements Route {
   public router = Router();
   public schedule = new PyoScheduleController();
   public path = '/pyo-schedule';

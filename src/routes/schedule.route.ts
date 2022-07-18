@@ -1,8 +1,8 @@
 import ScheduleController from "@/controllers/schedule.controller";
-import { Routes } from "@/interfaces/route.interface";
+import { Route } from "@/interfaces/route.interface";
 import { Router } from "express";
 
-class ScheduleRoute implements Routes {
+class ScheduleRoute implements Route {
   public router = Router();
   public schedule = new ScheduleController();
   public path = '/schedule';

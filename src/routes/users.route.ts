@@ -1,10 +1,10 @@
 import { Router } from 'express';
 import UsersController from '@controllers/users.controller';
 import { CreateUserDto } from '@/dtos/user.dto';
-import { Routes } from '@/interfaces/route.interface';
+import { Route } from '@/interfaces/route.interface';
 import validationMiddleware from '@middlewares/validation.middleware';
 
-class UsersRoute implements Routes {
+class UsersRoute implements Route {
   public path = '/users';
   public router = Router();
   public usersController = new UsersController();
