@@ -25,8 +25,8 @@ class UserService {
   public async createUser(userData: CreateUserDto): Promise<User> {
     if (isEmpty(userData)) throw new HttpException(400, "You're not userData");
 
-    const findUser: User = await this.users.findOne({ email: userData.email });
-    if (findUser) throw new HttpException(409, `Your email ${userData.email} already exists`);
+    const findUser: User = await this.users.findOne({ email: userData.username });
+    if (findUser) throw new HttpException(409, `Your email ${userData.username} already exists`);
 
     const hashedPassword = await hash(userData.password, 10);
     const createUserData: User = await this.users.create({ ...userData, password: hashedPassword });
@@ -37,9 +37,9 @@ class UserService {
   public async updateUser(userId: string, userData: CreateUserDto): Promise<User> {
     if (isEmpty(userData)) throw new HttpException(400, "You're not userData");
 
-    if (userData.email) {
-      const findUser: User = await this.users.findOne({ email: userData.email });
-      if (findUser && findUser._id != userId) throw new HttpException(409, `You're email ${userData.email} already exists`);
+    if (userData.username) {
+      const findUser: User = await this.users.findOne({ email: userData.username });
+      if (findUser && findUser._id != userId) throw new HttpException(409, `You're email ${userData.username} already exists`);
     }
 
     if (userData.password) {
