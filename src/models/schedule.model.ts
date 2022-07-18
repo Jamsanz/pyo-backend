@@ -1,5 +1,5 @@
-import { Document, model, Schema } from "mongoose";
-import Schedule from '../interfaces/schedule.interface'
+import { Document, model, Schema } from 'mongoose';
+import Schedule from '../interfaces/schedule.interface';
 
 const scheduleSchema = new Schema(
   {
@@ -34,13 +34,13 @@ const scheduleSchema = new Schema(
     status: {
       type: Boolean,
       required: false,
-      default: false
+      default: false,
     },
     userId: {
       type: Schema.Types.ObjectId,
       required: true,
-      ref: 'Member'
-    }
+      ref: 'User',
+    },
   },
   { timestamps: true },
 );

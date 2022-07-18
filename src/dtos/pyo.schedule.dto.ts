@@ -1,8 +1,7 @@
-import PyoSchedule from "@/interfaces/pyo.schedule.interface";
-import { IsString } from "class-validator";
+import PyoSchedule from '@/interfaces/pyo.schedule.interface';
+import { IsString } from 'class-validator';
 
 class PyoScheduleDto implements PyoSchedule {
-
   @IsString()
   public orgName: string;
 
@@ -59,7 +58,6 @@ class PyoScheduleDto implements PyoSchedule {
 
   @IsString()
   public _id?: string;
-
 }
 
 export default PyoScheduleDto;

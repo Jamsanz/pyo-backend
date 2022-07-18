@@ -1,5 +1,5 @@
 import ScheduleController from "@/controllers/schedule.controller";
-import { Routes } from "@/interfaces/routes.interface";
+import { Routes } from "@/interfaces/route.interface";
 import { Router } from "express";
 
 class ScheduleRoute implements Routes {

@@ -1,4 +1,4 @@
-interface PyoSchedule{
+interface PyoSchedule {
   orgName: string;
   orgWebsite?: string;
   orgDescription: string;

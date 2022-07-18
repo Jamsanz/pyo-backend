@@ -1,5 +1,5 @@
-import { IMessage } from "@/interfaces/message.interface";
-import { Document, model, Schema } from "mongoose";
+import { Message } from '@/interfaces/message.interface';
+import { Document, model, Schema } from 'mongoose';
 
 const messageSchema = new Schema({
   name: {
@@ -17,8 +17,8 @@ const messageSchema = new Schema({
   status: {
     type: Boolean,
     required: false,
-    default: false
-  }
+    default: false,
+  },
 });
 
-export default model<IMessage & Document>('Message', messageSchema);
+export default model<Message & Document>('Message', messageSchema);
