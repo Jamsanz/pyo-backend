@@ -14,7 +14,7 @@ class UsersController {
     try {
       // const findAllUsersData: User[] = await this.userService.findAllUser();
       const subscribers: Subscription[] = await this.subscriptionService.findAll();
-      const data = subscribers.filter((user) => user.fellowship.length <= 0);
+      const data = subscribers.filter((user) => user.fellowship.length > 0);
       res.status(200).json({ data, message: 'findAll' });
     } catch (error) {
       next(error);
