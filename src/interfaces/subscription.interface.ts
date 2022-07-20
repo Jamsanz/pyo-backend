@@ -9,4 +9,5 @@ export interface Subscription {
   fellowship?: string;
   status?: boolean;
   userId?: User['_id'];
+  _id?: string;
 }

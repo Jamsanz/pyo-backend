@@ -8,4 +8,5 @@ export interface AuthResponse {
   fellowship?: string;
   status?: boolean;
   userId?: string;
+  subscriberId?: string;
 }

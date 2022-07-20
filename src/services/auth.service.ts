@@ -7,6 +7,7 @@ import { DataStoredInToken, TokenData } from '@interfaces/auth.interface';
 import { User } from '@/interfaces/user.interface';
 import userModel from '@/models/user.model';
 import { isEmpty } from '@utils/util';
+import SubscriptionService from './subscription.service';
 
 class AuthService {
   public users = userModel;
@@ -28,7 +29,6 @@ class AuthService {
 
     const findUser: User = await this.users.findOne({ username: userData.username });
     if (!findUser) throw new HttpException(409, `Your username ${userData.username} not found.`);
-
     // TODO: Enable password check on login
     // const isPasswordMatching: boolean = await compare(userData.password, findUser.password);
     // if (!isPasswordMatching) throw new HttpException(409, 'Your passwords do not match.');

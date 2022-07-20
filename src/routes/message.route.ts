@@ -1,8 +1,8 @@
 import MessageController from '@/controllers/message.controller';
-import { Routes } from '@/interfaces/route.interface';
+import { Route } from '@/interfaces/route.interface';
 import { Router } from 'express';
 
-class MessageRoute implements Routes {
+class MessageRoute implements Route {
   public path = '/message';
   public router: Router = Router();
   public message = new MessageController();

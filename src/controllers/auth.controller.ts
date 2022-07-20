@@ -40,6 +40,7 @@ class AuthController {
         data.fellowship = subscriber.fellowship;
         data.email = subscriber.email;
         data.phone = subscriber.phone;
+        data.subscriberId = subscriber._id;
       }
 
       res.setHeader('Set-Cookie', [cookie]);
