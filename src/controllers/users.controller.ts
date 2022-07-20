@@ -4,6 +4,7 @@ import { User } from '@/interfaces/user.interface';
 import userService from '@services/users.service';
 import SubscriptionService from '@/services/subscription.service';
 import { AuthResponse } from '@/interfaces/authResponse.interface';
+import { Subscription } from '@/interfaces/subscription.interface';
 
 class UsersController {
   public userService = new userService();
@@ -11,9 +12,10 @@ class UsersController {
 
   public getUsers = async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const findAllUsersData: User[] = await this.userService.findAllUser();
-
-      res.status(200).json({ data: findAllUsersData, message: 'findAll' });
+      // const findAllUsersData: User[] = await this.userService.findAllUser();
+      const subscribers: Subscription[] = await this.subscriptionService.findAll();
+      const data = subscribers.filter((user) => user.fellowship.length <= 0);
+      res.status(200).json({ data, message: 'findAll' });
     } catch (error) {
       next(error);
     }
