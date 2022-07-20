@@ -2,9 +2,12 @@ import { NextFunction, Request, Response } from 'express';
 import { CreateUserDto } from '@/dtos/user.dto';
 import { User } from '@/interfaces/user.interface';
 import userService from '@services/users.service';
+import SubscriptionService from '@/services/subscription.service';
+import { AuthResponse } from '@/interfaces/authResponse.interface';
 
 class UsersController {
   public userService = new userService();
+  public subscriptionService = new SubscriptionService();
 
   public getUsers = async (req: Request, res: Response, next: NextFunction) => {
     try {
@@ -20,8 +23,21 @@ class UsersController {
     try {
       const userId: string = req.params.id;
       const findOneUserData: User = await this.userService.findUserById(userId);
+      const data: AuthResponse = {
+        username: findOneUserData.username,
+        userId: findOneUserData._id,
+      };
 
-      res.status(200).json({ data: findOneUserData, message: 'findOne' });
+      const subscriber = await this.subscriptionService.findSubscriptionByEmail(findOneUserData.username);
+      if (subscriber != null) {
+        data.firstName = subscriber.firstName;
+        data.lastName = subscriber.lastName;
+        data.country = subscriber.country;
+        data.fellowship = subscriber.fellowship;
+        data.email = subscriber.email;
+        data.phone = subscriber.phone;
+      }
+      res.status(200).json({ data, message: 'User findOne' });
     } catch (error) {
       next(error);
     }
