@@ -8,7 +8,7 @@ class SponsorsService {
   public sponsors = sponsorsModel;
 
   public async findAll(): Promise<ISponsor[]> {
-    return await this.sponsors.find();
+    return await this.sponsors.find({});
   }
 
   public async findById(id: string): Promise<ISponsor> {
