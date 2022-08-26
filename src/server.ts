@@ -7,6 +7,8 @@ import SubscriptionRoute from './routes/subscription.route';
 import MessageRoute from './routes/message.route';
 import PyoScheduleRoute from './routes/pyo.schedule.route';
 import ScheduleRoute from './routes/schedule.route';
+import SponsorsRoute from './routes/sponsor.route';
+import FinancialSupportRoute from './routes/financialSupport.route';
 
 validateEnv();
 
@@ -18,6 +20,8 @@ const app = new App([
   new ScheduleRoute(),
   new MessageRoute(),
   new PyoScheduleRoute(),
+  new SponsorsRoute(),
+  new FinancialSupportRoute()
 ]);
 
 app.listen();
