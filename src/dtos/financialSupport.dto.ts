@@ -18,6 +18,24 @@ class FinancialSupportDto implements IFinancialSupport {
   public email: string;
 
   @IsString()
+  public address: string;
+
+  @IsString()
+  public stateOfResidence: string;
+
+  @IsString()
+  public lgaOfResidence: string;
+
+  @IsString()
+  public dob: string;
+
+  @IsString()
+  public maritalStatus: string;
+
+  @IsString()
+  public qualification: string;
+  
+  @IsString()
   public phone: string;
 
   @IsString()
